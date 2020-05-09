@@ -7,6 +7,10 @@ package io.flutter.plugins.videoplayer;
 import android.content.Context;
 import android.util.Log;
 import android.util.LongSparseArray;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.EventChannel;
@@ -120,6 +124,7 @@ public class VideoPlayerPlugin implements MethodCallHandler, FlutterPlugin {
                     handle,
                     "asset:///" + assetLookupKey,
                     result,
+                    null,
                     null);
             videoPlayers.put(handle.id(), player);
           } else {
@@ -130,7 +135,9 @@ public class VideoPlayerPlugin implements MethodCallHandler, FlutterPlugin {
                     handle,
                     call.argument("uri"),
                     result,
-                    call.argument("formatHint"));
+                    call.argument("formatHint"),
+                    call.argument("headers")
+                );
             videoPlayers.put(handle.id(), player);
           }
           break;

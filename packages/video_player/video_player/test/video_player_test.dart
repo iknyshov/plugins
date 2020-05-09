@@ -51,6 +51,10 @@ class FakeController extends ValueNotifier<VideoPlayerValue>
 
   @override
   Future<ClosedCaptionFile> get closedCaptionFile => _loadClosedCaption();
+
+  @override
+  // TODO: implement headers
+  Map<String, String> get headers => throw UnimplementedError();
 }
 
 Future<ClosedCaptionFile> _loadClosedCaption() async =>
